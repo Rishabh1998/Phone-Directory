@@ -29,16 +29,22 @@
 	<form name="form" onsubmit="return addData()">
  <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name">
+    <input type="text" class="form-control" id="name" oninput="ShowText()">
   </div>
   <div class="form-group">
     <label for="phone">Phone:</label>
-    <input type="number" class="form-control" id="phone">
+    <input type="text" class="form-control" id="phone" oninput="ShowText()">
   </div>
   <input type="button" class="add-row btn btn-success" value="Add Row">
 </form> 
-</div>
+<br><br>
 
+<div class="jumbotron">
+      <h3>Subscriber to add:</h3>
+	  <p id="sname"></p>
+		<p id="sphone"></p>
+    </div>
+</div>
 
 <div id ="data" class = "container">
 
@@ -59,7 +65,8 @@
         </tbody>
     </table>
     <button type="button" class="delete-row btn btn-danger">Delete Row</button>
-
+<br><br>
+	
   
 <script>
 
@@ -83,20 +90,27 @@ $(document).ready(function(){
 		
     }); 
 	
-	function myFunction() {
+function myFunction() {
   var x = document.getElementById("data");
   var y = document.getElementById("formdata");
     x.style.display = "none";
 	y.style.display = "block";
   
 }
+
 function dis() {
 	var x = document.getElementById("data");
 	var y = document.getElementById("formdata");
 	x.style.display = "block";
 	y.style.display = "none";
 }
-	
+
+function ShowText() {
+  var x = document.getElementById("name").value;
+  var y = document.getElementById("phone").value;
+  document.getElementById("sname").innerHTML = "Name: " + x;
+  document.getElementById("sphone").innerHTML = "Phone: " + y;
+}	
 </script>
 </body>
 </html>
